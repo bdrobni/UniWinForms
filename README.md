@@ -1,0 +1,1 @@
+Contains a work in progress WinForms solution and a .sql file for the database, database is not currently populated with values but will be populated with sample values at a later date. Test user credentials are bdrobni/1234
