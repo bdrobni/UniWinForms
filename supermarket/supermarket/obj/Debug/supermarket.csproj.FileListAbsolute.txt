@@ -1,0 +1,11 @@
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\bin\Debug\supermarket.exe.config
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\bin\Debug\supermarket.exe
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\bin\Debug\supermarket.pdb
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.csproj.AssemblyReference.cache
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.Form1.resources
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.LoginForm.resources
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.Properties.Resources.resources
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.csproj.GenerateResource.cache
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.csproj.CoreCompileInputs.cache
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.exe
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.pdb
