@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,21 +32,29 @@ namespace supermarket
 
         public void CheckAddArtikal(Artikal art, BindingList<Artikal> artikli)
         {
-            foreach(Artikal a in artikli)
-            {
-                if (art.Sifra == a.Sifra)
+            if(artikli.Count > 0)
+                for(int a = 0; a < artikli.Count; a++)
                 {
-                    a.BrStavki += 1;
+                    if (art.Sifra == artikli[a].Sifra)
+                    {
+                        artikli[a].BrStavki += 1;
+                        tbTotal.Text = FindTotal(artikli).ToString();
+                        artikli.ResetBindings();
+                        break;
+                    }
+                    else if (popust.SifraArtikla == art.Sifra)
+                    {
+                        art.Cena *= popust.Kolicina / 100;
+                        artikli.Add(art);
+                        tbTotal.Text = FindTotal(artikli).ToString();
+                        break;
+                    }
+                    else artikli.Add(art);
+                    tbTotal.Text = FindTotal(artikli).ToString();
                     break;
                 }
-                else
-                {
-                    if (popust.SifraArtikla == art.Sifra)
-                    { art.Cena *= popust.Kolicina; }
-                    artikli.Add(art);
-                    break;
-                }
-            }
+            else artikli.Add(art);
+            tbTotal.Text = FindTotal(artikli).ToString();
         }
         public void DoLogin()
         {
@@ -59,6 +68,8 @@ namespace supermarket
             btnAddBonus.Enabled = true;
             btnLogout.Enabled = true;
             btnLogin.Enabled = false;
+            if (ulogovani.IsAdmin)
+                btnAdmin.Enabled = true;
         }
         public Form1()
         {
@@ -70,16 +81,17 @@ namespace supermarket
             // TODO: This line of code loads data into the 'radnjaDataSet.Artikal' table. You can move, or remove it, as needed.
             this.artikalTableAdapter.Fill(this.radnjaDataSet.Artikal);
             listBox1.DataSource = artikli;
-            listBox1.ValueMember = ToString();
+            listBox1.DisplayMember = "Display";
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             Artikal a = new Artikal();
-            a.Sifra = Int32.Parse(dataGridView1.SelectedRows[0].ToString());
-            a.Naziv = dataGridView1.SelectedRows[1].ToString();
-            a.Barkod = Int32.Parse(dataGridView1.SelectedRows[2].ToString());
-            a.Cena = Int32.Parse(dataGridView1.SelectedRows[3].ToString());
+            int selectedrow = dataGridView1.SelectedRows[0].Index;
+            a.Sifra = Int32.Parse(dataGridView1[0, selectedrow].Value.ToString());
+            a.Naziv = dataGridView1[1, selectedrow].Value.ToString();
+            a.Barkod = Int32.Parse(dataGridView1[2, selectedrow].Value.ToString());
+            a.Cena = Int32.Parse(dataGridView1[3, selectedrow].Value.ToString());
             a.BrStavki = 1;
 
             CheckAddArtikal(a, artikli);
@@ -175,11 +187,19 @@ namespace supermarket
         private void btnReset_Click(object sender, EventArgs e)
         {
             artikli.Clear();
+            tbTotal.Clear();
         }
 
         private void btnRemoveItem_Click(object sender, EventArgs e)
-        {
-            artikli.RemoveAt(listBox1.SelectedIndex);
+        {           
+                if(artikli[listBox1.SelectedIndex].BrStavki > 1)
+                {
+                    artikli[listBox1.SelectedIndex].BrStavki -= 1;
+                     artikli.ResetBindings();
+                }
+                else artikli.RemoveAt(listBox1.SelectedIndex);
+            
+            tbTotal.Text = FindTotal(artikli).ToString();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -203,6 +223,7 @@ namespace supermarket
             btnAddBonus.Enabled = false;
             btnLogout.Enabled = false;
             btnLogin.Enabled = true;
+            btnAdmin.Enabled = false;
         }
 
         private void btnAddBonus_Click(object sender, EventArgs e)
@@ -237,6 +258,12 @@ namespace supermarket
                 }
                 finally { conn.Close(); }
             }
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            Admin admin = new Admin();
+            admin.Show();
         }
     }
 }

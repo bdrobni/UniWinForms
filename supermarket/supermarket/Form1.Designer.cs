@@ -50,6 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.tbKasir = new System.Windows.Forms.TextBox();
@@ -239,6 +240,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnAdmin);
             this.groupBox2.Controls.Add(this.btnLogout);
             this.groupBox2.Controls.Add(this.btnLogin);
             this.groupBox2.Controls.Add(this.tbKasir);
@@ -249,6 +251,17 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kasir/ka";
+            // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Enabled = false;
+            this.btnAdmin.Location = new System.Drawing.Point(12, 64);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(94, 23);
+            this.btnAdmin.TabIndex = 4;
+            this.btnAdmin.Text = "Administracija";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // btnLogout
             // 
@@ -374,6 +387,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cenaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnAddByCode;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }
 

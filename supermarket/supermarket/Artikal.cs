@@ -25,7 +25,7 @@ namespace supermarket
         public int Barkod { get; set; }
         public float Cena { get; set; }
         public int BrStavki { get; set; }
-        
+        public string Display { get { return Naziv + " " + Cena + " RSD " + BrStavki + " primerak"; } }
         
         public override string ToString()
         {

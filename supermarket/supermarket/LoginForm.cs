@@ -45,7 +45,7 @@ namespace supermarket
                     reader.Read();
                     if(reader.HasRows)
                     {
-                        Kasir k = new Kasir(Int32.Parse(reader[0].ToString()), reader[3].ToString(), reader[4].ToString());
+                        Kasir k = new Kasir(Int32.Parse(reader[0].ToString()), reader[3].ToString(), reader[4].ToString(), Int32.Parse(reader[5].ToString()));
                         if(k.Sifra!=0 && k.Ime!=null && k.Prezime!=null)
                         {   
                             Form1.ulogovani = k;                            
