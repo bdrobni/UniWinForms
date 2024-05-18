@@ -20,7 +20,7 @@ namespace supermarket
             InitializeComponent();
             Console.WriteLine("login opened");
         }
-
+        //This event fires when the user logs in
         public delegate void Notify();
 
         public event Notify LoginComplete;
@@ -37,6 +37,7 @@ namespace supermarket
             { 
                 try
                 {
+                    //We check whether the user's credentials match the ones in the database and, if they do, log them in
                     conn.Open();
                     SqlCommand sqlCommand = new SqlCommand("select * from Kasir where korisnickoime=@kime and lozinka=@pass", conn);
                     sqlCommand.Parameters.AddWithValue("kime", tbUsername.Text.ToString());
@@ -45,7 +46,7 @@ namespace supermarket
                     reader.Read();
                     if(reader.HasRows)
                     {
-                        Kasir k = new Kasir(Int32.Parse(reader[0].ToString()), reader[3].ToString(), reader[4].ToString());
+                        Kasir k = new Kasir(Int32.Parse(reader[0].ToString()), reader[3].ToString(), reader[4].ToString(), Int32.Parse(reader[5].ToString()));
                         if(k.Sifra!=0 && k.Ime!=null && k.Prezime!=null)
                         {   
                             Form1.ulogovani = k;                            

@@ -50,6 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.tbKasir = new System.Windows.Forms.TextBox();
@@ -57,6 +58,7 @@
             this.artikalTableAdapter = new supermarket.radnjaDataSetTableAdapters.ArtikalTableAdapter();
             this.btnAddByCode = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artikalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radnjaDataSet)).BeginInit();
@@ -182,12 +184,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnAddBonus);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbBonus);
             this.groupBox1.Location = new System.Drawing.Point(699, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.Size = new System.Drawing.Size(200, 135);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bonusi";
@@ -195,7 +198,7 @@
             // btnAddBonus
             // 
             this.btnAddBonus.Enabled = false;
-            this.btnAddBonus.Location = new System.Drawing.Point(6, 71);
+            this.btnAddBonus.Location = new System.Drawing.Point(6, 106);
             this.btnAddBonus.Name = "btnAddBonus";
             this.btnAddBonus.Size = new System.Drawing.Size(100, 23);
             this.btnAddBonus.TabIndex = 2;
@@ -239,6 +242,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnAdmin);
             this.groupBox2.Controls.Add(this.btnLogout);
             this.groupBox2.Controls.Add(this.btnLogin);
             this.groupBox2.Controls.Add(this.tbKasir);
@@ -249,6 +253,17 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kasir/ka";
+            // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Enabled = false;
+            this.btnAdmin.Location = new System.Drawing.Point(12, 64);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(94, 23);
+            this.btnAdmin.TabIndex = 4;
+            this.btnAdmin.Text = "Administracija";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // btnLogout
             // 
@@ -310,6 +325,14 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(204, 433);
             this.listBox1.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 3;
             // 
             // Form1
             // 
@@ -374,6 +397,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cenaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnAddByCode;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.Label label5;
     }
 }
 

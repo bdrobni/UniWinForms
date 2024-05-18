@@ -8,6 +8,7 @@ namespace supermarket
 {
     public class Artikal
     {
+        //Class representing the items available in the store
         public Artikal()
         {
         }
@@ -25,11 +26,8 @@ namespace supermarket
         public int Barkod { get; set; }
         public float Cena { get; set; }
         public int BrStavki { get; set; }
+        //The Display property is used to display the item in the listbox
+        public string Display { get { return Naziv + " " + Cena + " RSD " + BrStavki + " primerak"; } } 
         
-        
-        public override string ToString()
-        {
-            return Naziv + " " + Cena + " RSD " + BrStavki;
-        }
     }
 }

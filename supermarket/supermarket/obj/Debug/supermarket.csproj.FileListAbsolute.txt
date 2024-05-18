@@ -9,3 +9,4 @@ C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.c
 C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.csproj.CoreCompileInputs.cache
 C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.exe
 C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.pdb
+C:\Users\B\Desktop\supermarket 2\supermarket\supermarket\obj\Debug\supermarket.Admin.resources
