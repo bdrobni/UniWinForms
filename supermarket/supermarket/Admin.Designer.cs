@@ -30,26 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.radnjaDataSet = new supermarket.radnjaDataSet();
-            this.artikalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.artikalTableAdapter = new supermarket.radnjaDataSetTableAdapters.ArtikalTableAdapter();
             this.sifraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barkodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artikalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.radnjaDataSet = new supermarket.radnjaDataSet();
+            this.artikalTableAdapter = new supermarket.radnjaDataSetTableAdapters.ArtikalTableAdapter();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.tbBarcode = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbBarcode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSaveAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radnjaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artikalBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radnjaDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,20 +67,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(446, 392);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // radnjaDataSet
-            // 
-            this.radnjaDataSet.DataSetName = "radnjaDataSet";
-            this.radnjaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // artikalBindingSource
-            // 
-            this.artikalBindingSource.DataMember = "Artikal";
-            this.artikalBindingSource.DataSource = this.radnjaDataSet;
-            // 
-            // artikalTableAdapter
-            // 
-            this.artikalTableAdapter.ClearBeforeFill = true;
             // 
             // sifraDataGridViewTextBoxColumn
             // 
@@ -106,6 +92,20 @@
             this.cenaDataGridViewTextBoxColumn.HeaderText = "cena";
             this.cenaDataGridViewTextBoxColumn.Name = "cenaDataGridViewTextBoxColumn";
             // 
+            // artikalBindingSource
+            // 
+            this.artikalBindingSource.DataMember = "Artikal";
+            this.artikalBindingSource.DataSource = this.radnjaDataSet;
+            // 
+            // radnjaDataSet
+            // 
+            this.radnjaDataSet.DataSetName = "radnjaDataSet";
+            this.radnjaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // artikalTableAdapter
+            // 
+            this.artikalTableAdapter.ClearBeforeFill = true;
+            // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(13, 415);
@@ -114,6 +114,7 @@
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Obrisi";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -123,6 +124,7 @@
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Izmeni";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // groupBox1
             // 
@@ -138,38 +140,6 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Podaci o artiklu";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Naziv";
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(10, 37);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(190, 20);
-            this.tbName.TabIndex = 1;
-            // 
-            // tbBarcode
-            // 
-            this.tbBarcode.Location = new System.Drawing.Point(10, 77);
-            this.tbBarcode.Name = "tbBarcode";
-            this.tbBarcode.Size = new System.Drawing.Size(190, 20);
-            this.tbBarcode.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Barkod";
             // 
             // tbPrice
             // 
@@ -187,6 +157,38 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Cena";
             // 
+            // tbBarcode
+            // 
+            this.tbBarcode.Location = new System.Drawing.Point(10, 77);
+            this.tbBarcode.Name = "tbBarcode";
+            this.tbBarcode.Size = new System.Drawing.Size(190, 20);
+            this.tbBarcode.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Barkod";
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(10, 37);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(190, 20);
+            this.tbName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Naziv";
+            // 
             // btnSaveAdd
             // 
             this.btnSaveAdd.Location = new System.Drawing.Point(465, 163);
@@ -195,6 +197,7 @@
             this.btnSaveAdd.TabIndex = 4;
             this.btnSaveAdd.Text = "Sacuvaj";
             this.btnSaveAdd.UseVisualStyleBackColor = true;
+            this.btnSaveAdd.Click += new System.EventHandler(this.btnSaveAdd_Click);
             // 
             // Admin
             // 
@@ -210,8 +213,8 @@
             this.Text = "Administracija";
             this.Load += new System.EventHandler(this.Admin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radnjaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.artikalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radnjaDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

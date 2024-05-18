@@ -8,6 +8,7 @@ namespace supermarket
 {
     public class Popust
     {
+        //Class represents discounts that may be applied to specific items
         public int Sifra {  get; set; }
         public string Opis { get; set; }
         public float Kolicina { get; set; }
